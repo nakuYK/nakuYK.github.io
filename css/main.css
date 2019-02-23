@@ -2013,7 +2013,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #be2404;
+  background: #8affff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2980,10 +2980,6 @@ hr {
     width: auto;
     text-align: center;
   }
-}
-body {
-  background: url("/images/background.png");
-  background-attachment: fixed;
 }
 .post {
   margin-top: 60px;
