@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-22T06:55:11.035Z</updated>
+  <updated>2019-02-24T05:31:12.114Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML5新特性</title>
+    <link href="http://yoursite.com/2019/02/24/HTML5%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <id>http://yoursite.com/2019/02/24/HTML5新特性/</id>
+    <published>2019-02-24T05:13:21.000Z</published>
+    <updated>2019-02-24T05:31:12.114Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HTML5新特性："><a href="#HTML5新特性：" class="headerlink" title="HTML5新特性："></a>HTML5新特性：</h2><h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><p>用于绘画的canvas标签<br>用于媒介回放的video和audio元素<br>对本地离线储存的更好支持 </p><h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><p>新的特殊内容元素<br>如：article、footer、header、nav、section<br>新的表单控件<br>如：calendar、date、time、email、url、search </p><h4 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h4><p>Safari、Chrome、Firefox、Opera以及IE9基本支持了HTML5 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HTML5新特性：&quot;&gt;&lt;a href=&quot;#HTML5新特性：&quot; class=&quot;headerlink&quot; title=&quot;HTML5新特性：&quot;&gt;&lt;/a&gt;HTML5新特性：&lt;/h2&gt;&lt;h4 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
