@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-24T13:32:55.429Z</updated>
+  <updated>2019-02-24T15:14:40.496Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2019/02/24/JavaScript%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2019/02/24/JavaScript笔记/</id>
     <published>2019-02-24T13:25:09.000Z</published>
-    <updated>2019-02-24T13:32:55.429Z</updated>
+    <updated>2019-02-24T15:14:40.496Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="JavaScript事件"><a href="#JavaScript事件" class="headerlink" title="JavaScript事件"></a>JavaScript事件</h3><p>onclick 单击事件<br>onmouseover 鼠标经过事件<br>onmouseout  鼠标移出事件<br>onchange    文本内容改变事件<br>onselect    文本框选中事件<br>onfocus     光标聚集事件<br>onblur      移开光标事件<br>onload      网页加载事件<br>onunload    关闭网页事件</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="JavaScript事件"><a href="#JavaScript事件" class="headerlink" title="JavaScript事件"></a>JavaScript事件</h3><p>onclick　　　　单击事件<br>onmouseover　　鼠标经过事件<br>onmouseout　　鼠标移出事件<br>onchange　　　文本内容改变事件<br>onselect　　　文本框选中事件<br>onfocus　　　光标聚集事件<br>onblur　　　　网页加载事件<br>onunload　　　关闭网页事件</p><h3 id="JavaScript函数"><a href="#JavaScript函数" class="headerlink" title="JavaScript函数"></a>JavaScript函数</h3><h4 id="JavaScript使用关键字function定义函数。"><a href="#JavaScript使用关键字function定义函数。" class="headerlink" title="JavaScript使用关键字function定义函数。"></a>JavaScript使用关键字function定义函数。</h4><pre><code>function myFunction(a, b) {    return a * b;}</code></pre><h4 id="函数可以通过声明定义，也可以是一个表达式。"><a href="#函数可以通过声明定义，也可以是一个表达式。" class="headerlink" title="函数可以通过声明定义，也可以是一个表达式。"></a>函数可以通过声明定义，也可以是一个表达式。</h4><pre><code>var x = function (a, b) {    return a * b;} </code></pre><h4 id="函数表达式可以”自调用”。"><a href="#函数表达式可以”自调用”。" class="headerlink" title="函数表达式可以”自调用”。"></a>函数表达式可以”自调用”。</h4><pre><code>(function () {    var x = &quot;Hello!!&quot;;      // 我将调用自己})();</code></pre><h4 id="函数是对象"><a href="#函数是对象" class="headerlink" title="函数是对象"></a>函数是对象</h4><p>JavaScript函数有属性和方法。 </p><h4 id="JavaScript变量可以是局部变量或全局变量。"><a href="#JavaScript变量可以是局部变量或全局变量。" class="headerlink" title="JavaScript变量可以是局部变量或全局变量。"></a>JavaScript变量可以是局部变量或全局变量。</h4><p>函数可以访问由函数内部定义的变量。（局部变量）<br>函数也可以访问函数外部定义的变量。（全局变量）</p><h4 id="JavaScript闭包"><a href="#JavaScript闭包" class="headerlink" title="JavaScript闭包"></a>JavaScript闭包</h4><p>闭包是可访问其它函数作用域里变量的函数。因为变量被引用着所以不会被回收，因此可以用来封装一个私有变量。这是优点也是缺点，不必要的闭包只会增加内存消耗。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;JavaScript事件&quot;&gt;&lt;a href=&quot;#JavaScript事件&quot; class=&quot;headerlink&quot; title=&quot;JavaScript事件&quot;&gt;&lt;/a&gt;JavaScript事件&lt;/h3&gt;&lt;p&gt;onclick 单击事件&lt;br&gt;onmouseover 鼠标
+        &lt;h3 id=&quot;JavaScript事件&quot;&gt;&lt;a href=&quot;#JavaScript事件&quot; class=&quot;headerlink&quot; title=&quot;JavaScript事件&quot;&gt;&lt;/a&gt;JavaScript事件&lt;/h3&gt;&lt;p&gt;onclick　　　　单击事件&lt;br&gt;onmouseover
       
     
     </summary>
@@ -46,9 +46,9 @@
     <link href="http://yoursite.com/2019/02/24/HTML5%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     <id>http://yoursite.com/2019/02/24/HTML5新特性/</id>
     <published>2019-02-24T05:13:21.000Z</published>
-    <updated>2019-02-24T14:00:12.041Z</updated>
+    <updated>2019-02-24T14:07:37.776Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="HTML5新特性："><a href="#HTML5新特性：" class="headerlink" title="HTML5新特性："></a>HTML5新特性：</h2><h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><pre><code>用于绘画的canvas标签 用于媒介回放的video和audio元素 对本地离线储存的更好支持 </code></pre><h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><pre><code>新的特殊内容元素 如：article、footer、header、nav、section 新的表单控件 如：calendar、date、time、email、url、search </code></pre><h4 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h4><pre><code>Safari、Chrome、Firefox、Opera以及IE9基本支持了HTML5 </code></pre><h2 id="HTML属性"><a href="#HTML属性" class="headerlink" title="HTML属性"></a>HTML属性</h2><h4 id="常用标签属性："><a href="#常用标签属性：" class="headerlink" title="常用标签属性："></a>常用标签属性：</h4><pre><code>&lt;h1&gt;:align 对齐方式 &lt;body&gt;:bgcolor 背景颜色 &lt;a&gt;:target 规定在何处打开链接herf 指向一个文档的链接 name 创建文档内的链接 </code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="HTML5新特性："><a href="#HTML5新特性：" class="headerlink" title="HTML5新特性："></a>HTML5新特性：</h2><h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><pre><code>用于绘画的canvas标签 用于媒介回放的video和audio元素 对本地离线储存的更好支持 </code></pre><h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><pre><code>新的特殊内容元素 如：article、footer、header、nav、section 新的表单控件 如：calendar、date、time、email、url、search </code></pre><h4 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h4><pre><code>Safari、Chrome、Firefox、Opera以及IE9基本支持了HTML5 </code></pre><h2 id="HTML属性："><a href="#HTML属性：" class="headerlink" title="HTML属性："></a>HTML属性：</h2><h4 id="常用标签属性："><a href="#常用标签属性：" class="headerlink" title="常用标签属性："></a>常用标签属性：</h4><pre><code>&lt;h1&gt;:align 对齐方式 &lt;body&gt;:bgcolor 背景颜色 &lt;a&gt;:target 规定在何处打开链接herf 指向一个文档的链接 name 创建文档内的链接 </code></pre>]]></content>
     
     <summary type="html">
     
