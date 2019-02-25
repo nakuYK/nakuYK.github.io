@@ -104,10 +104,12 @@
 <meta property="og:site_name" content="久等">
 <meta property="og:description" content="JavaScript事件onclick　　　　单击事件onmouseover　　鼠标经过事件onmouseout　　鼠标移出事件onchange　　　文本内容改变事件onselect　　　文本框选中事件onfocus　　　光标聚集事件onblur　　　　网页加载事件onunload　　　关闭网页事件 JavaScript函数JavaScript使用关键字function定义函数。function">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-24T15:14:40.496Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/24/JavaScript笔记/htmltree.gif">
+<meta property="og:updated_time" content="2019-02-25T03:03:51.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript笔记">
 <meta name="twitter:description" content="JavaScript事件onclick　　　　单击事件onmouseover　　鼠标经过事件onmouseout　　鼠标移出事件onchange　　　文本内容改变事件onselect　　　文本框选中事件onfocus　　　光标聚集事件onblur　　　　网页加载事件onunload　　　关闭网页事件 JavaScript函数JavaScript使用关键字function定义函数。function">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/24/JavaScript笔记/htmltree.gif">
 
 
 
@@ -368,12 +370,24 @@
                 
               
 
-              <time title="创建时间：2019-02-24 21:25:09 / 修改时间：23:14:40" itemprop="dateCreated datePublished" datetime="2019-02-24T21:25:09+08:00">2019-02-24</time>
+              <time title="创建时间：2019-02-24 21:25:09" itemprop="dateCreated datePublished" datetime="2019-02-24T21:25:09+08:00">2019-02-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-25 11:03:51" itemprop="dateModified" datetime="2019-02-25T11:03:51+08:00">2019-02-25</time>
               
             
           </span>
@@ -445,6 +459,20 @@
 </code></pre><h4 id="函数是对象"><a href="#函数是对象" class="headerlink" title="函数是对象"></a>函数是对象</h4><p>JavaScript函数有属性和方法。 </p>
 <h4 id="JavaScript变量可以是局部变量或全局变量。"><a href="#JavaScript变量可以是局部变量或全局变量。" class="headerlink" title="JavaScript变量可以是局部变量或全局变量。"></a>JavaScript变量可以是局部变量或全局变量。</h4><p>函数可以访问由函数内部定义的变量。（局部变量）<br>函数也可以访问函数外部定义的变量。（全局变量）</p>
 <h4 id="JavaScript闭包"><a href="#JavaScript闭包" class="headerlink" title="JavaScript闭包"></a>JavaScript闭包</h4><p>闭包是可访问其它函数作用域里变量的函数。因为变量被引用着所以不会被回收，因此可以用来封装一个私有变量。这是优点也是缺点，不必要的闭包只会增加内存消耗。</p>
+<h3 id="JavaScript-HTML-DOM"><a href="#JavaScript-HTML-DOM" class="headerlink" title="JavaScript　HTML　DOM"></a>JavaScript　HTML　DOM</h3><h4 id="HTML-DOM（文档对象模型）"><a href="#HTML-DOM（文档对象模型）" class="headerlink" title="HTML　DOM（文档对象模型）"></a>HTML　DOM（文档对象模型）</h4><p>HTML　DOM树<br><img src="htmltree.gif" alt="html dom 树"></p>
+<h4 id="JavaScript-HTML-DOM-改变-HTML"><a href="#JavaScript-HTML-DOM-改变-HTML" class="headerlink" title="JavaScript　HTML　DOM - 改变 HTML"></a>JavaScript　HTML　DOM - 改变 HTML</h4><p>改变HTML输出流：JavaScript能够创建动态的HTML内容。<br>改变HTML内容：修改HTML内容的最简单的方法是使用innerHTML属性改变元素的内容。</p>
+<pre><code>document.getElementById(id).innerHTML=新的HTML
+</code></pre><p>改变HTML属性：如需改变HTML元素的属性，使用这个语法：</p>
+<pre><code>document.getElementById(id).attribute=新属性值
+</code></pre><h4 id="JavaScript-HTML-DOM-改变CSS"><a href="#JavaScript-HTML-DOM-改变CSS" class="headerlink" title="JavaScript　HTML　DOM - 改变CSS"></a>JavaScript　HTML　DOM - 改变CSS</h4><p>改变 HTML 元素的样式，使用这个语法：</p>
+<pre><code>document.getElementById(id).style.property=新样式
+</code></pre><h4 id="JavaScript-HTML-DOM-事件"><a href="#JavaScript-HTML-DOM-事件" class="headerlink" title="JavaScript　HTML　DOM 事件"></a>JavaScript　HTML　DOM 事件</h4><p>HTML DOM 使 JavaScript 有能力对 HTML 事件做出反应。</p>
+<h4 id="JavaScript-HTML-DOM-EventListener"><a href="#JavaScript-HTML-DOM-EventListener" class="headerlink" title="JavaScript　HTML　DOM　EventListener"></a>JavaScript　HTML　DOM　EventListener</h4><pre><code>addEventListener() 方法用于向指定元素添加事件句柄。
+addEventListener() 方法添加的事件句柄不会覆盖已存在的事件句柄。
+</code></pre><p>可以向一个元素添加多个事件句柄。<br>可以向同个元素添加多个同类型的事件句柄，如：两个 “click” 事件。<br>可以向任何 DOM 对象添加事件监听，不仅仅是 HTML 元素。如： window 对象。<br>addEventListener() 方法可以更简单的控制事件（冒泡与捕获）。<br>当你使用 addEventListener() 方法时, JavaScript 从 HTML 标记中分离开来，可读性更强，在没有控制HTML标记时也可以添加事件监听。<br>你可以使用 removeEventListener() 方法来移除事件的监听。</p>
+<h4 id="JavaScript-HTML-DOM-元素（节点）"><a href="#JavaScript-HTML-DOM-元素（节点）" class="headerlink" title="JavaScript　HTML　DOM　元素（节点）"></a>JavaScript　HTML　DOM　元素（节点）</h4><p>创建新的 HTML 元素（节点）- appendChild()<br>创建新的 HTML 元素 (节点) - insertBefore()<br>移除已存在的元素 - removeChild()<br>替换 HTML 元素 - replaceChild()</p>
+<h4 id="JavaScript-HTML-DOM-集合-Collection"><a href="#JavaScript-HTML-DOM-集合-Collection" class="headerlink" title="JavaScript　HTML　DOM 集合(Collection)"></a>JavaScript　HTML　DOM 集合(Collection)</h4><p>getElementsByTagName() 方法返回 HTMLCollection 对象。<br>HTMLCollection 对象类似包含 HTML 元素的一个数组。<br>HTMLCollection 对象的 length 属性定义了集合中元素的数量。<br><strong>注意</strong><br>HTMLCollection 不是一个数组！<br>HTMLCollection 看起来可能是一个数组，但其实不是。<br>可以像数组一样，使用索引来获取元素。<br>HTMLCollection 无法使用数组的方法： valueOf(), pop(), push(), 或 join() 。</p>
+<h4 id="JavaScript-HTML-DOM-节点列表"><a href="#JavaScript-HTML-DOM-节点列表" class="headerlink" title="JavaScript　HTML　DOM　节点列表"></a>JavaScript　HTML　DOM　节点列表</h4><p>NodeList 对象是一个从文档中获取的节点列表 (集合) 。<br>NodeList 对象类似 HTMLCollection 对象。都可以使用索引来获取元素，都有 length 属性。<br>NodeList 对象包含属性节点和文本节点。<br><strong>NodeList不是一个数组！</strong></p>
 
       
     </div>
@@ -662,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript事件"><span class="nav-number">1.</span> <span class="nav-text">JavaScript事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript函数"><span class="nav-number">2.</span> <span class="nav-text">JavaScript函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript使用关键字function定义函数。"><span class="nav-number">2.1.</span> <span class="nav-text">JavaScript使用关键字function定义函数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数可以通过声明定义，也可以是一个表达式。"><span class="nav-number">2.2.</span> <span class="nav-text">函数可以通过声明定义，也可以是一个表达式。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数表达式可以”自调用”。"><span class="nav-number">2.3.</span> <span class="nav-text">函数表达式可以”自调用”。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数是对象"><span class="nav-number">2.4.</span> <span class="nav-text">函数是对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript变量可以是局部变量或全局变量。"><span class="nav-number">2.5.</span> <span class="nav-text">JavaScript变量可以是局部变量或全局变量。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript闭包"><span class="nav-number">2.6.</span> <span class="nav-text">JavaScript闭包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript事件"><span class="nav-number">1.</span> <span class="nav-text">JavaScript事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript函数"><span class="nav-number">2.</span> <span class="nav-text">JavaScript函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript使用关键字function定义函数。"><span class="nav-number">2.1.</span> <span class="nav-text">JavaScript使用关键字function定义函数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数可以通过声明定义，也可以是一个表达式。"><span class="nav-number">2.2.</span> <span class="nav-text">函数可以通过声明定义，也可以是一个表达式。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数表达式可以”自调用”。"><span class="nav-number">2.3.</span> <span class="nav-text">函数表达式可以”自调用”。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数是对象"><span class="nav-number">2.4.</span> <span class="nav-text">函数是对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript变量可以是局部变量或全局变量。"><span class="nav-number">2.5.</span> <span class="nav-text">JavaScript变量可以是局部变量或全局变量。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript闭包"><span class="nav-number">2.6.</span> <span class="nav-text">JavaScript闭包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-HTML-DOM"><span class="nav-number">3.</span> <span class="nav-text">JavaScript　HTML　DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML-DOM（文档对象模型）"><span class="nav-number">3.1.</span> <span class="nav-text">HTML　DOM（文档对象模型）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-改变-HTML"><span class="nav-number">3.2.</span> <span class="nav-text">JavaScript　HTML　DOM - 改变 HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-改变CSS"><span class="nav-number">3.3.</span> <span class="nav-text">JavaScript　HTML　DOM - 改变CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-事件"><span class="nav-number">3.4.</span> <span class="nav-text">JavaScript　HTML　DOM 事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-EventListener"><span class="nav-number">3.5.</span> <span class="nav-text">JavaScript　HTML　DOM　EventListener</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-元素（节点）"><span class="nav-number">3.6.</span> <span class="nav-text">JavaScript　HTML　DOM　元素（节点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-集合-Collection"><span class="nav-number">3.7.</span> <span class="nav-text">JavaScript　HTML　DOM 集合(Collection)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-HTML-DOM-节点列表"><span class="nav-number">3.8.</span> <span class="nav-text">JavaScript　HTML　DOM　节点列表</span></a></li></ol></li></ol></div>
             
 
           </div>
