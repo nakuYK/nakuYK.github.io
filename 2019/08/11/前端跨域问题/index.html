@@ -104,14 +104,14 @@
 
 
   <meta name="description" content="跨域什么是跨域跨域，是由于浏览器为了保障安全的同源策略限制，不能执行其他网站的脚本。只要协议、域名、端口有任何一个不同，就会被当作是不同的域。 由于在工程中，不同职责的服务分散在不同的工程中，往往这些工程的域名是不同的，但一个需求可能需要对应到多个服务，这时便需要调用不同服务的接口，因此会出现跨域。 如何实现跨域JSONP浏览器只对XHR(XMLHttpRequest)请求有同源请求限制，而对sc">
-<meta name="keywords" content="跨域,JSONP">
+<meta name="keywords" content="跨域,JSONP,CORS,getMessage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端跨域问题">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/前端跨域问题/index.html">
 <meta property="og:site_name" content="久等">
 <meta property="og:description" content="跨域什么是跨域跨域，是由于浏览器为了保障安全的同源策略限制，不能执行其他网站的脚本。只要协议、域名、端口有任何一个不同，就会被当作是不同的域。 由于在工程中，不同职责的服务分散在不同的工程中，往往这些工程的域名是不同的，但一个需求可能需要对应到多个服务，这时便需要调用不同服务的接口，因此会出现跨域。 如何实现跨域JSONP浏览器只对XHR(XMLHttpRequest)请求有同源请求限制，而对sc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T03:30:22.396Z">
+<meta property="og:updated_time" content="2019-08-11T03:36:50.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端跨域问题">
 <meta name="twitter:description" content="跨域什么是跨域跨域，是由于浏览器为了保障安全的同源策略限制，不能执行其他网站的脚本。只要协议、域名、端口有任何一个不同，就会被当作是不同的域。 由于在工程中，不同职责的服务分散在不同的工程中，往往这些工程的域名是不同的，但一个需求可能需要对应到多个服务，这时便需要调用不同服务的接口，因此会出现跨域。 如何实现跨域JSONP浏览器只对XHR(XMLHttpRequest)请求有同源请求限制，而对sc">
@@ -375,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2019-08-11 09:37:17 / 修改时间：11:30:22" itemprop="dateCreated datePublished" datetime="2019-08-11T09:37:17+08:00">2019-08-11</time>
+              <time title="创建时间：2019-08-11 09:37:17 / 修改时间：11:36:50" itemprop="dateCreated datePublished" datetime="2019-08-11T09:37:17+08:00">2019-08-11</time>
             
 
             
@@ -451,7 +451,15 @@
 <p>CORS与JSONP的使用目的相同，但是比JSONP更强大，CORS支持所有类型的HTTP请求。</p>
 <p>了解更多可以参考：<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享CORS详解</a></p>
 <h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><p>postMessage是HTML5新增的一个解决跨域的一个方法。postMessage()方法可以允许来自不同域的脚本异步方式通信，可以实现跨文本、多窗口、跨域的消息传递。</p>
-<p>使用方法： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- otherWindow指的是目标窗口，也就是要给哪一个window发送消息，是window.frames属性的成员或者是window.open方法创建的窗口</span><br><span class="line">- Message是要发送的消息，类型为String，Object(IE8、9不支持Obj)</span><br><span class="line">- targetOrigin是限定消息接受范围，不限制就用星号 *</span><br><span class="line"></span><br><span class="line">A页面通过postMessage方法发送消息：</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">window.onload = function() &#123;  </span><br><span class="line">    var ifr = document.getElementById(&apos;ifr&apos;);  </span><br><span class="line">    var targetOrigin = &quot;http://www.google.com&quot;;  </span><br><span class="line">    ifr.contentWindow.postMessage(&apos;hello world!&apos;, targetOrigin);  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>例：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">otherWindow.postMessage(message,targetOrigin);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>otherWindow指的是目标窗口，也就是要给哪一个window发送消息，是window.frames属性的成员或者是window.open方法创建的窗口</li>
+<li>Message是要发送的消息，类型为String，Object(IE8、9不支持Obj)</li>
+<li>targetOrigin是限定消息接受范围，不限制就用星号 *</li>
+</ul>
+<p>A页面通过postMessage方法发送消息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> ifr = <span class="built_in">document</span>.getElementById(<span class="string">'ifr'</span>);  </span><br><span class="line">    <span class="keyword">var</span> targetOrigin = <span class="string">"http://www.google.com"</span>;  </span><br><span class="line">    ifr.contentWindow.postMessage(<span class="string">'hello world!'</span>, targetOrigin);  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>B页面通过message事件监听并接受消息:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> data = event.data;<span class="comment">//消息  </span></span><br><span class="line">    <span class="keyword">var</span> origin = event.origin;<span class="comment">//消息来源地址  </span></span><br><span class="line">    <span class="keyword">var</span> source = event.source;<span class="comment">//源Window对象  </span></span><br><span class="line">    <span class="keyword">if</span>(origin==<span class="string">"http://www.baidu.com"</span>)&#123;  </span><br><span class="line">        <span class="built_in">console</span>.log(data);<span class="comment">//hello world!  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.addEventListener != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, onmessage, <span class="literal">false</span>);  </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.attachEvent != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">    <span class="comment">//for ie  </span></span><br><span class="line">    <span class="built_in">window</span>.attachEvent(<span class="string">'onmessage'</span>, onmessage);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>稍微了解了三种比较常用的实现跨域的方法，还有一些方法之后再了解一下补上。</p>
@@ -486,6 +494,10 @@
             <a href="/tags/跨域/" rel="tag"><i class="fa fa-tag"></i> 跨域</a>
           
             <a href="/tags/JSONP/" rel="tag"><i class="fa fa-tag"></i> JSONP</a>
+          
+            <a href="/tags/CORS/" rel="tag"><i class="fa fa-tag"></i> CORS</a>
+          
+            <a href="/tags/getMessage/" rel="tag"><i class="fa fa-tag"></i> getMessage</a>
           
         </div>
       
@@ -630,7 +642,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
