@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-07T09:23:13.538Z</updated>
+  <updated>2020-03-05T02:59:53.842Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序获取表单中n个input输入的内容</title>
+    <link href="http://yoursite.com/2020/03/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95%E8%8E%B7%E5%8F%96n%E4%B8%AAinput%E8%BE%93%E5%85%A5%E7%9A%84%E5%86%85%E5%AE%B9/"/>
+    <id>http://yoursite.com/2020/03/05/微信小程序提交表单获取n个input输入的内容/</id>
+    <published>2020-03-05T01:28:34.000Z</published>
+    <updated>2020-03-05T02:59:53.842Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="微信小程序提交表单获取n个input输入的内容"><a href="#微信小程序提交表单获取n个input输入的内容" class="headerlink" title="微信小程序提交表单获取n个input输入的内容"></a>微信小程序提交表单获取n个input输入的内容</h3><p>微信小程序需要一个可以添加和删除的输入列表，提交表单时需要将同一字段转化成字符串提交。</p><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><ul><li>先定义一个列表长度的数组:</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data&#123;</span><br><span class="line">  arr_number: [<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>输入框绑定 ‘name’ ，name中的数字索引取</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form bindsubmit=&quot;formSubmit&quot;&gt;</span><br><span class="line">  &lt;view wx:for=&quot;&#123;&#123;arr_number&#125;&#125;&quot; wx:key=&quot;index&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;name&#123;&#123;index&#125;&#125;&quot;&gt;</span><br><span class="line">    &lt;/input&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure><ul><li>提交表单时遍历 ‘arr_name’ ，取出所有 ‘input’ 对应的内容</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">formSubmit: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> names = []</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.data.arr_number.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.detail.value[<span class="string">"name"</span> + i])&#123;</span><br><span class="line">      names.push(e.detail.value[<span class="string">"name"</span> + i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><ul><li>输入框绑定 ‘id’ , ‘id’ 取数组索引，绑定同一事件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;arr_number&#125;&#125;&quot; wx:key=&quot;index&quot;&gt;</span><br><span class="line">  &lt;input bindinput=&quot;nameInput&quot; id=&quot;&#123;&#123;index&#125;&#125;&quot; value=&quot;&#123;&#123;arr_name[index]&#125;&#125;&quot;&gt;</span><br><span class="line">  &lt;/input&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data&#123;</span><br><span class="line">  arr_number: [<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">  arr_name: [<span class="string">''</span>,<span class="string">''</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>输入框输入内容时触发事件，获取对应输入框 ‘id’ ，就可以实时绑定输入值</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nameInput: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> name_index = <span class="string">'arr_name['</span>+e.currentTarget.id+<span class="string">']'</span></span><br><span class="line">  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">    [name_index]: e.detail.value</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.data.arr_name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第一种方法存在一个问题就是没有实施保存输入的数据，如果需要对数组做一些操作的话会影响输入框的内容。第二种方法是实施绑定输入的内容，添加和删除输入框列表长度不会影响输入框的值，更灵活。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;微信小程序提交表单获取n个input输入的内容&quot;&gt;&lt;a href=&quot;#微信小程序提交表单获取n个input输入的内容&quot; class=&quot;headerlink&quot; title=&quot;微信小程序提交表单获取n个input输入的内容&quot;&gt;&lt;/a&gt;微信小程序提交表单获取n个inpu
+      
+    
+    </summary>
+    
+      <category term="问题记录" scheme="http://yoursite.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="JS" scheme="http://yoursite.com/tags/JS/"/>
+    
+      <category term="微信小程序" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6将Json对象处理成一个特定格式字符串</title>
