@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-05T02:59:53.842Z</updated>
+  <updated>2020-03-11T04:06:59.649Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序带参数返回上一页</title>
+    <link href="http://yoursite.com/2020/03/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%A6%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E4%B8%8A%E4%B8%80%E9%A1%B5/"/>
+    <id>http://yoursite.com/2020/03/11/微信小程序带参数返回上一页/</id>
+    <published>2020-03-11T03:32:07.000Z</published>
+    <updated>2020-03-11T04:06:59.649Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="微信小程序带参数返回上一页"><a href="#微信小程序带参数返回上一页" class="headerlink" title="微信小程序带参数返回上一页"></a>微信小程序带参数返回上一页</h4><p>在小程序开发中，很多时候需要进入页面填写或选择一些数据，然后携带这些数据返回上一页。</p><p>这时候可以通过 <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/getCurrentPages.html" target="_blank" rel="noopener">getCurrentPages()</a> 获取上一页的页面栈，然后直接调用上一个页面Page对象的属性和方法，从而达到将数据传到上一页的目的。</p><p>通过调用上个页面的setData方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Page = getCurrentPages()[getCurrentPages().length - <span class="number">2</span>];</span><br><span class="line">Page.setData(&#123;</span><br><span class="line">  value: <span class="keyword">this</span>.page.value</span><br><span class="line">&#125;)</span><br><span class="line">wx.navigateBack(&#123;</span><br><span class="line">  delta: <span class="number">1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><p>通过缓存或者在 app.js 中设置全局变量也是可以达到带参数返回上一页的，但是通过<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/getCurrentPages.html" target="_blank" rel="noopener">getCurrentPages()</a>这种方法更简单且强大。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;微信小程序带参数返回上一页&quot;&gt;&lt;a href=&quot;#微信小程序带参数返回上一页&quot; class=&quot;headerlink&quot; title=&quot;微信小程序带参数返回上一页&quot;&gt;&lt;/a&gt;微信小程序带参数返回上一页&lt;/h4&gt;&lt;p&gt;在小程序开发中，很多时候需要进入页面填写或选择一些数
+      
+    
+    </summary>
+    
+      <category term="问题记录" scheme="http://yoursite.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="JS" scheme="http://yoursite.com/tags/JS/"/>
+    
+      <category term="微信小程序" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序获取表单中n个input输入的内容</title>
