@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-11T04:06:59.649Z</updated>
+  <updated>2020-04-13T02:41:02.536Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js实现数组随机排序</title>
+    <link href="http://yoursite.com/2020/04/13/js%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2020/04/13/js实现数组随机排序/</id>
+    <published>2020-04-13T01:52:48.000Z</published>
+    <updated>2020-04-13T02:41:02.536Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="js实现数组随机排序"><a href="#js实现数组随机排序" class="headerlink" title="js实现数组随机排序"></a>js实现数组随机排序</h3><h4 id="一、利用循环遍历"><a href="#一、利用循环遍历" class="headerlink" title="一、利用循环遍历"></a>一、利用循环遍历</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr2 = arr.concat()</span><br><span class="line">  <span class="keyword">let</span> result = []</span><br><span class="line">  <span class="keyword">while</span>(arr2.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * arr2.length)</span><br><span class="line">    result = result.concat(arr2.splice(index, <span class="number">1</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(randomSort(arr))</span><br></pre></td></tr></table></figure><p>这种方法定义一个随机数index（因为定了向下取整，所以范围为0~arr.length）作为随机下标，然后将它对应的数从数组中取下加入到result数组中，从而实现随机排序，这种随机的随机性很好，但是代码新创建了一个数组，空间复杂度较高。</p><h4 id="二、数组sort方法"><a href="#二、数组sort方法" class="headerlink" title="二、数组sort方法"></a>二、数组sort方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort2</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = arr.concat();</span><br><span class="line">  result.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(randomSort2(arr))</span><br></pre></td></tr></table></figure><p>这种方法是利用随机出一个正数或者负数来让数组里面的内容两两对比，是正数就是顺序，是负数则是倒序，这种方法的缺点就是随机性不高，不能完全随机，因为是两两对比，所以最后一个数在最后的可能性较大。</p><h4 id="三、洗牌算法"><a href="#三、洗牌算法" class="headerlink" title="三、洗牌算法"></a>三、洗牌算法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort3</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = arr.concat()</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>,len = arr.length;i &lt; len; i++ )&#123;</span><br><span class="line">    <span class="keyword">let</span> rand = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*len)</span><br><span class="line">    <span class="keyword">let</span> temp = result[rand]</span><br><span class="line">    result[rand] = result[i]</span><br><span class="line">    result[i] = temp</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(randomSort3(arr))</span><br></pre></td></tr></table></figure><p>洗牌算法是利用随机出的index下标对应的数，与数组从前到后相互切换，所以称为洗牌，代码运行效率比较高，随机性也很大。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;js实现数组随机排序&quot;&gt;&lt;a href=&quot;#js实现数组随机排序&quot; class=&quot;headerlink&quot; title=&quot;js实现数组随机排序&quot;&gt;&lt;/a&gt;js实现数组随机排序&lt;/h3&gt;&lt;h4 id=&quot;一、利用循环遍历&quot;&gt;&lt;a href=&quot;#一、利用循环遍历&quot; cla
+      
+    
+    </summary>
+    
+      <category term="知识点" scheme="http://yoursite.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+    
+      <category term="JS" scheme="http://yoursite.com/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序带参数返回上一页</title>
