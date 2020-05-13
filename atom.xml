@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-13T02:41:02.536Z</updated>
+  <updated>2020-05-13T04:49:20.130Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css实现背景斜椭圆光束渐变</title>
+    <link href="http://yoursite.com/2020/05/13/css%E5%AE%9E%E7%8E%B0%E8%83%8C%E6%99%AF%E6%96%9C%E6%A4%AD%E5%9C%86%E5%85%89%E6%9D%9F%E6%B8%90%E5%8F%98/"/>
+    <id>http://yoursite.com/2020/05/13/css实现背景斜椭圆光束渐变/</id>
+    <published>2020-05-13T03:25:07.000Z</published>
+    <updated>2020-05-13T04:49:20.130Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="css实现背景斜椭圆光束渐变"><a href="#css实现背景斜椭圆光束渐变" class="headerlink" title="css实现背景斜椭圆光束渐变"></a>css实现背景斜椭圆光束渐变</h3><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="preview.jpg" alt="效果图"></p><h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><p>今天写样式时遇到一个按钮，背景中有一个倾斜的渐变光束，原型图中看出是一个扁的椭圆拉出来的渐变效果。</p><p>查了一下，找到了 <strong><a href="https://www.runoob.com/cssref/func-radial-gradient.html" target="_blank" rel="noopener">CSS radial-gradient()</a></strong> 方法，看了一下果然可行，画出一个渐变椭圆。</p><p>接着使用 <strong><a href="https://www.runoob.com/cssref/css3-pr-transform.html" target="_blank" rel="noopener">CSS3 transform</a></strong> 使它旋转，这样光束就实现了。</p><p>然后用一个容器将其包起来，超出的部分隐藏，这样就做成按钮的样式了。</p><p>由于还有文字，所以使用 <strong>z-index</strong> 调整显示层级，使其正常显示。这样整个就完成了！</p><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>HTML<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button-text"</span>&gt;</span>马上绑定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button-bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>CSS<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">86px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ffda5f</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.button-text</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">86px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#323232</span>;</span><br><span class="line">  <span class="attribute">letter-spacing</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.button-bg</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">190px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">95px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ffda5f</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(100% 95px at 40% 95px, #fff,#ffda5f);</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(50deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;css实现背景斜椭圆光束渐变&quot;&gt;&lt;a href=&quot;#css实现背景斜椭圆光束渐变&quot; class=&quot;headerlink&quot; title=&quot;css实现背景斜椭圆光束渐变&quot;&gt;&lt;/a&gt;css实现背景斜椭圆光束渐变&lt;/h3&gt;&lt;h4 id=&quot;效果图&quot;&gt;&lt;a href=&quot;#效果
+      
+    
+    </summary>
+    
+      <category term="样式实现" scheme="http://yoursite.com/categories/%E6%A0%B7%E5%BC%8F%E5%AE%9E%E7%8E%B0/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+  </entry>
   
   <entry>
     <title>js实现数组随机排序</title>
